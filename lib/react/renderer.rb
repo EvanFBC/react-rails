@@ -12,9 +12,8 @@ module React
 
     cattr_accessor :pool
 
-    def self.setup!(react_js, components_js, args={})
+    def self.setup!(components_js, args={})
       args.assert_valid_keys(:size, :timeout)
-      @@react_js = react_js
       @@components_js = components_js
       @@pool.shutdown{} if @@pool
       reset_combined_js!
@@ -68,8 +67,6 @@ module React
           }
         });
 
-        #{@@react_js.call};
-        React = global.React;
         #{@@components_js.call};
       CODE
     end
