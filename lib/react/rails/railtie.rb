@@ -8,7 +8,7 @@ module React
       # Server-side rendering
       config.react.max_renderers = 10
       config.react.timeout = 20 #seconds
-      config.react.component_filenames = ['components.js']
+      config.react.component_filenames = ['server_components.js']
 
       # Watch all JS files for any change, so we can reload the JS VMs with the new JS code.
       initializer "react_rails.add_watchable_files" do |app|
