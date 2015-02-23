@@ -55,6 +55,7 @@ module React
     private
 
     def self.setup_combined_js
+      components_js = @@components_js.call
       <<-CODE
         var global = global || this;
         var self = self || this;
@@ -67,7 +68,7 @@ module React
           }
         });
 
-        #{@@components_js.call};
+        #{components_js}
       CODE
     end
 
